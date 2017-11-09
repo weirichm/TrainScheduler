@@ -1,0 +1,37 @@
+
+h1 {
+	font-family: 'Quicksand', sans-serif;
+
+}
+
+.jumbotron {
+	background-color: #FEBAA2;
+	color: #5B5959; 
+}
+
+h3 {
+	font-family: 'Quicksand', sans-serif;
+}
+
+#trainTable {
+	font-family: 'Quicksand', sans-serif;
+}
+
+.panel-body {
+	font-family: 'Quicksand', sans-serif;
+}
+
+body {
+	background-color: #FE4E11;
+}
+
+.panel-title {
+	background-color: #88abca;
+	color: #5B5959; 
+}
+
+.panel-primary>.panel-heading {
+	background-color: #88abca;
+	border-color: #88abca;
+	color: #5B5959; 
+}
