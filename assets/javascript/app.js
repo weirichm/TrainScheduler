@@ -11,10 +11,10 @@ var config = {
   firebase.initializeApp(config);
 
 //storing database call as a function
-var database = firebase.database();
+var trainData = firebase.database();
 
 //submit button for adding new trains that the user inputs
-$("#addTrain").on("click", function(){
+$("#addTrain").on("click", function(event) {
 
 	//variables used to grab user input
 	var trainName = $("trainNameInput").val().trim();
@@ -22,12 +22,13 @@ $("#addTrain").on("click", function(){
 	var firstTrain = moment($("firstTrainInput").val().trim(), "HH:mm").subtract(10, "years").format("X");
 	var frequency = $("#frequencyInput").val().trim();
 
+	// creates local temporary object for data
 	var newTrain = {
 		name: trainName,
 		destination: destination,
 		firstTrain: firstTrainUnix,
 		frequency: frequency
-	}
+	};
 
 	//uploads new train data to the database
 	trainData.ref().push(newTrain);
@@ -36,6 +37,12 @@ $("#addTrain").on("click", function(){
 	console.log(newTrain.destination);
 	console.log(firstTrainUnix);
 	console.log(newTrain.frequency);
+
+	//clears input boxes 
+	$("#trainNameInput").val("");
+	$("#destinationInput").val("");
+	$("#firstTrainInput").val("");
+	$("#firstTrainInput").val("");
 
 });
 
