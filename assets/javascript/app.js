@@ -13,9 +13,31 @@ var config = {
 //storing database call as a function
 var database = firebase.database();
 
-//storing data fields values as blank upon load
-var trainName = " ";
-var destinationInput = " ";
-var firstTrainInput = " ";
-var frequencyInput = 0;
+//submit button for adding new trains that the user inputs
+$("#addTrain").on("click", function(){
+
+	//variables used to grab user input
+	var trainName = $("trainNameInput").val().trim();
+	var destination = $("destinationInput").val().trim();
+	var firstTrain = moment($("firstTrainInput").val().trim(), "HH:mm").subtract(10, "years").format("X");
+	var frequency = $("#frequencyInput").val().trim();
+
+	var newTrain = {
+		name: trainName,
+		destination: destination,
+		firstTrain: firstTrainUnix,
+		frequency: frequency
+	}
+
+	//uploads new train data to the database
+	trainData.ref().push(newTrain);
+
+	console.log(newTrain.name);
+	console.log(newTrain.destination);
+	console.log(firstTrainUnix);
+	console.log(newTrain.frequency);
+
+});
+
+
  
